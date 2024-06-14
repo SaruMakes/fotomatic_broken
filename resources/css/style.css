@@ -24,39 +24,35 @@ header {
   position: fixed;
   height: 5.3125rem;
   width: 100%;
-  padding: 0 1.875rem;
   background-color: #ffffff;
   z-index: 2;
 }
 
 header .content {
+  display: flex;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  padding: 0 1.875rem;
   align-items: center;
+  justify-content: space-between;
 }
 
-header .content .logo_container {
-  display: flex;
-}
-
-header .content .logo_container .logo {
+header .logo {
   color: #4a4a4a;
   font-size: 1.5rem;
   font-family: "Roboto Mono";
   font-weight: 400;
 }
 
-header .content nav {
+header .navbars {
+  flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
-header .content nav ul {
+header ul {
   display: flex;
-  justify-content: space-between;
-  min-width: 21.5rem;
-  max-width: 21.5rem;
+  list-style: none;
 }
 
 header .content nav li {
@@ -64,6 +60,7 @@ header .content nav li {
   line-height: 1.6;
   font-family: "Roboto";
   font-weight: 400;
+  margin-left: 4rem;
 }
 
 header .content nav .icon {
@@ -80,34 +77,26 @@ header .content .mobile {
 
   .main-content {
     position: relative;
-    top: 4.5rem; /*To account for the height of the fixed navbar*/
+    top: 4.5rem; 
   }
 
   header {
-    position: fixed;
     height: 4.5rem;
-    width: 100%;
-    padding: 0 1.875rem;
-    background-color: #ffffff;
-    z-index: 2;
+  }
+
+  header .content nav li {
+    margin-left: 2.5rem;
   }
 
   header .content .mobile {
-    display: flex; /* Hides the mobile navigation initially */
-    height: 100%;
-    max-width: 71px;
-    align-items: center;
-    justify-content: end;
-    margin-left: 1rem;
+    display: flex;
   }
 
-  header .content .mobile a {
+  header .content nav.mobile ul li:not(:last-child) {
     display: none;
-    margin-right: 0;
   }
 
   header .content .mobile .button {
-    display: block;
     background-color: #9dc20a;
     color: #ffffff;
     padding: 0.1875rem 0.5rem;
@@ -115,13 +104,55 @@ header .content .mobile {
     font-size: 1rem;
     margin-right: 0;
   }
+}
 
-  header .content {
-    justify-content: flex-end;
+@media screen and (max-width: 600px) {
+
+  .main-content {
+    top: 3rem
   }
 
-  header .content .logo_container {
-    margin-right: auto;
+  header {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  header .content nav.mobile ul li:not(:last-child) {
+    display: list-item;
+  }
+
+  header .content {
+    width: 100%;
+  }
+
+  header .content .navbars {
+    display: flex;
+    width: inherit;
+  }
+
+  header .content .navbars .mobile {
+    width: inherit;
+  }
+
+  header .content .navbars .mobile ul {
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header .content .mobile li {
+    margin-left: 0;
+    height: inherit;
+  }
+
+  header .content .mobile li a {
+    display: flex;
   }
 
 }
@@ -224,6 +255,12 @@ header .content .mobile {
   }
 }
 
+@media screen and (max-width: 600px) {
+  #sign-up-section {
+    background-position: right;
+  }
+}
+
 /*Features Section*/
 
 #features-section {
@@ -249,7 +286,6 @@ header .content .mobile {
 #features-section .feature .image-container {
   display: flex;
   width: 100%;
-  background-color: black;
 }
 
 #features-section .feature .image-container img {
@@ -349,6 +385,43 @@ header .content .mobile {
   } 
 }
 
+@media screen and (max-width: 600px) { /*For mobile devices*/
+
+  #features-section {
+    padding: 0;
+  }
+
+  #features-section .container1 {
+    background-color: #979797;
+  }
+  
+  #features-section .feature {
+    height: 32rem;
+    width: 100%;
+    padding-bottom: 0rem;
+    margin: 0;
+  }
+
+  #features-section .feature .content {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+  }
+
+  #features-section .feature .content h2 {
+    font-size: 1,25rem;
+    line-height: 1.3;
+  }
+
+  #features-section .feature .content h3 {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+}
+
 
 /*Filters section*/
 
@@ -416,6 +489,32 @@ header .content .mobile {
   }
 }
 
+@media screen and (max-width: 600px) {
+
+  #filters-section {
+    text-align: center;
+  }
+
+  .images-container .extra {
+    display: none;
+  }
+
+  #filters-section .content {
+    padding: 3rem 1.25rem;
+  }
+
+  #filters-section .content h2 {
+    font-size: 1.6rem;
+    font-weight: lighter;
+    line-height: 1.2;
+  }
+
+  #filters-section .content h3 {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+}
+
 /*Quotes section*/
 
 #quotes-section {
@@ -465,6 +564,33 @@ header .content .mobile {
   }
 }
 
+@media screen and (max-width: 600px) {
+
+  #quotes-section {
+    padding: 3rem 0;
+  }
+
+  #quotes-section .content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  #quotes-section .quote {
+    font-size: 1.714285714285714rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    margin-right: 0;
+    padding: 0 2rem;
+  }
+
+  #quotes-section .quote-citation {
+    width: 10rem;
+  }
+}
+
 /*Footer section*/
 
 footer .content {
@@ -480,4 +606,11 @@ footer .content {
 footer .content span {
   color: white;
   font-size: 0.75rem;
+}
+
+@media screen and (max-width: 600px) {
+  
+  footer .content span {
+    font-size: 0.7142857142857143rem;
+  }
 }
